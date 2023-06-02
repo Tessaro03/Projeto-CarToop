@@ -1,0 +1,116 @@
+@charset "UTF-8";
+
+
+#formulario{
+    width: 90%;
+    padding-top: 45px;
+    margin-top: 30px;
+    margin: auto;
+    border-radius: 0px 0px 15px 15px;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.305);
+
+}
+.etiqueta{
+    color: rgb(3, 57, 133);
+}
+
+.form-control{
+    width: 80%;
+    height: 30px;
+    margin-bottom: 18px;
+    border-radius: 10px;
+    padding-left: 10px;
+    font-size: 0.8em;
+    border: 1px solid rgba(0, 0, 0, 0.157);
+}
+.opcao{
+    position: relative;
+    width: 90%;
+    margin: auto;
+    margin-top: 70px;
+}
+
+.cadastro{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-6%,-98%);
+    width: 50%;
+    padding-top: 20px;
+    padding-bottom: 12px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 0px 5px 0px 0px;
+    color: rgb(0, 84, 163);
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0px -10px 20px rgba(0, 0, 0, 0.133);
+    font-size: 1.3em;
+}
+
+.cadastro2{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-100%,-100%);
+    width: 48%;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 20px 0px 0px 0px;
+    color: rgb(255, 255, 255);
+    background-color: rgb(0, 84, 163);
+    box-shadow: 0px -9px 20px rgba(0, 0, 0, 0.06);
+    font-size: 1.1em;
+}
+.login{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(0%,-100%);
+    width: 48%;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: center;    
+    text-decoration: none;
+    border-radius: 0px 20px 0px 0px;
+    color: rgb(255, 255, 255);
+    background-color: rgb(0, 84, 163);
+    
+
+    box-shadow: 0px -10px 20px rgba(0, 0, 0, 0.192);
+    font-size: 1.1em;
+}
+.login2{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-95%,-98%);
+    width: 50%;
+    padding-top: 20px;
+    padding-bottom: 12px;
+    text-align: center;
+    border-radius: 5px 0px 0px 0px;
+    text-decoration: none;
+    color: rgb(0, 84, 163);
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0px -9px 20px rgba(0, 0, 0, 0.06);
+    font-size: 1.3em;
+}
+
+
+#confirma{
+    padding: 9px;
+    padding-left: 10%;
+    padding-right: 10%;
+    margin: 5px;
+    margin-bottom: 20px;
+    color: white;
+    text-decoration: none;
+    background-color: rgb(0, 84, 163);
+    border-radius: 10px;
+    border: 0px;
+    font-size: 1.1em;
+}
+

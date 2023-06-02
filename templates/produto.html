@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content%}   
+
+    <main>
+        <section>
+            {% if user.is_authenticated and user.is_superuser%}
+            <div id='opcao'>
+                <a id='editar' href="{% url 'editar_imagem' veiculo.id %}">  Editar </a>
+                <a id='excluir' href="{% url 'deletar_imagem' veiculo.id %}"> Excluir </a>
+            </div>
+            {% endif %}
+            <div class='produto'>
+                <p id='nome'> {{veiculo.nome}} </p>
+                <span class="material-symbols-outlined" id="favorite">favorite</span>
+                {% for foto in veiculo.fotos.all %}
+                    <img class="card{% if forloop.first %} ativa{% endif %}" src="{{ foto.imagem.url }}">
+                {% endfor %}
+                <div id="botoes">
+                    <button id='mudar_esquerda' class='botao_mudar'><span class="material-symbols-outlined">keyboard_arrow_left</span></button>
+                    <button id='mudar_direita' class='botao_mudar'><span class="material-symbols-outlined">keyboard_arrow_right</span></button>
+                </div>
+                <div id="fotos">
+                {% for foto in veiculo.fotos.all %}
+                    <img id='mini-foto'src="{{foto.imagem.url}}" alt=""> </img>                
+                {% endfor %}
+                </div>
+                <div id='comprar'>
+                    <p><strong>COMPRAR</strong></p>
+                </div>
+                <div id='contato'>
+                    <p><strong>CONTATO</strong></p>
+                </div>
+                <div id="descricao_produto">
+                    <p id='valor'><strong> R$ {{veiculo.valor}}0 </strong></p>
+                    <h3> DESCRIÇÃO </h3>
+
+                    <div id='km'>
+                        <p> <strong>KM:</strong> {{veiculo.km}} </p>
+                    </div>
+                    <div id='ano'>
+                        <p> <strong>ANO:</strong> {{veiculo.ano}} </p>
+                    </div>
+                    <div id='marca'>
+                       <p><strong> MARCA: </strong>{{ veiculo.marca}} </p> 
+                        
+                    </div>
+                    <div id="gasolina">
+                         <p><img src="../../media/icones/icons8-fuel-gas-32.png"><strong>:</strong> Gasolina </p>
+                        
+                    </div>
+                    <div id="cambio">
+                       <p><img src="../../media/icones/icons8-caixa-de-velocidade-32.png"> <strong>:</strong> Automatico </p>
+                      
+                    </div>
+                    <div id="porta">
+                       <p> <img src="../../media/icones/icons8-fechadura-da-porta-32.png"><strong>:</strong> 4 </p>
+                        
+     
+                    </div>
+                    <div id="motor">
+                       <p> <img src="../../media/icones/icons8-motor-48.png"><strong>:</strong>  2.0 </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script src={% static "js/script_produto.js" %}></script>
+
+{% endblock %}

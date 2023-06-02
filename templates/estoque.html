@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content%}    
+<nav>
+    <h2 id="select_filtros">FILTROS <span class="material-symbols-outlined"> arrow_circle_down</span></h2>
+    <div id="filtros">  
+        <a href={% url "filtro" "MOTO" %}><div class='btn'> <strong>MOTOS</strong> </div></a>
+        <a href={% url "filtro" "CARRO" %}><div class='btn'> <strong>CARROS</strong></div> </a>
+        <a href={% url "filtro" "VANS" %}><div class='btn'> <strong>VANS</strong> </div></a>
+        <a href={% url "filtro" "CAMINHOES" %}><div class='btn'> <strong>CAMINHÕES</strong> </div></a>   
+    </div>
+</nav>
+<body>
+    <main>
+        
+        <section id="vitrine">
+            {% if cards %}
+                {% for veiculo in cards %}
+                    <div class="caixas">
+                        {% if veiculo.fotos.all.0.imagem.url == '' or veiculo.fotos.all.0.imagem.url == null %}
+                            <img src="https://i.pinimg.com/236x/41/22/8c/41228c877bbfcdbc1c0e5716b7deab9e.jpg" alt="foto {{veiculo.nome}}">
+                        {% else %}
+                            <img src="{{ veiculo.fotos.all.0.imagem.url }}" alt="foto {{veiculo.nome}}">
+                        {% endif %}
+                        <span class="material-symbols-outlined" id="favorite">favorite</span>
+                        <h4 id='nome'>{{ veiculo.nome }}</h4>
+                        <div id='descricao'>
+                            <p>{{ veiculo.legenda }}</p>
+                        </div>
+                        <div id='ano'>
+                            <p>{{ veiculo.ano }}</p>
+                        </div>
+                        <div id='valor'>
+                            <p><strong>R$ {{ veiculo.valor }}0</strong></p>
+                        </div>
+                        <a href="{% url 'produto' veiculo.id %}">
+                            <div class="info">
+                                <strong>ACESSAR</strong>
+                            </div>
+                        </a>
+                    </div>
+                {% endfor %}
+            {% endif %}
+        </section>
+        
+    </main>
+</body>
+<script src={% static "js/script_estoque.js" %}></script>
+{% endblock %}

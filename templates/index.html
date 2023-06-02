@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <main id='index'>
+        <section id="desc">
+            <h2>Bem Vindo à CarToop</h2>
+            <p>Encontre o seu veiculo dos seus sonhos hoje!</p>
+            <a href={% url "estoque" %} class="botao"> Ver Estoque</a><br>
+        </section>
+  
+        <section class="container">
+            <hr>
+            <a href={% url "filtro" "MOTO" %}>
+                <div class="box" id="imgmoto">
+                    <img src="https://i.pinimg.com/564x/57/89/73/5789736536d1f36b2e03532c73cf9425.jpg">
+                </div>
+            </a>
+            <a href={% url "filtro" "CARRO" %}>
+                <div class="box" id="imgcarro">
+                    <img src="https://i.pinimg.com/564x/97/12/5e/97125e75a2ed614369c66a5f55109b14.jpg">
+                    
+                </div>
+            </a>
+            <a href={%  url "filtro" "VANS" %}>
+                <div class='box' id="imgvan">
+                    <img src="https://i.pinimg.com/564x/c5/db/0f/c5db0fe20ce0398512ccc1d8bb2b8f72.jpg" alt="Imagem">
+                </div>
+            </a>
+            <a href={% url "filtro" "CAMINHOES" %}>
+                <div class="box" id="imgcaminhao">
+                    <img src="https://i.pinimg.com/564x/47/dc/96/47dc9674a21ee75a753ff8f5051b3126.jpg">
+            
+                </div>
+            </a>
+        </section>
+        <section class="compra">
+            <h2><strong>Está pensando em vender seu carro? <br> Então você está no lugar certo! </strong></h2>
+            <p>Aqui na nossa loja, compramos o seu carro usado de forma justa e rápida.</p>
+            <p>Não se preocupe com a burocracia, cuidamos de toda a documentação para você.</p>
+            <p>Entre em contato conosco e venda seu carro hoje mesmo!</p>
+            <button><strong>Quero Vender!</strong></button>
+        </section>
+    </main>
+    
+{% endblock %}

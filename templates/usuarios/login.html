@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class='opcao'>
+    <a href="{% url 'cadastro'%}" class='login'> <strong>Cadastrar-se</strong></a>
+    <a  class='login2'> <strong>Login</strong> </a>
+</div>    
+<form method='POST'>
+{% csrf_token %}
+<div id='formulario'>
+{% for field in form.visible_fields %}
+    <div>
+        <label class='etiqueta' for="{{form.id_for_label}}">
+            <strong>{{ field.label }}</strong>
+        </label> <br>
+        {{ field }}
+    </div>
+{% endfor %}
+    <div>    
+        <button type='submit' id='confirma'> <strong>Entrar</strong> </button>            
+    </div>
+</div>
+</form>
+
+
+
+{% endblock %}

@@ -1,0 +1,274 @@
+@charset "UTF-8";
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@1,700&display=swap');
+
+
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+.produto{
+    position: relative;
+    width: 95%;
+    height: 900px;
+    
+    margin: auto;
+
+    border-radius: 10px;
+    box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.179);
+
+}
+
+.produto > #nome{
+    text-align: center;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 1.7em;
+    padding: 10px;
+
+    text-shadow: 0px 0px 20px rgba(105, 105, 105, 0.227);
+    color: rgb(3, 61, 141);
+}
+
+.produto > #favorite {
+    position: absolute;
+    left: 93%;
+    top: 4%;
+    transform: translate(-50%, -80%);
+    font-size: 24px;
+    padding: 4px;
+    background-color: rgb(255 255 255);
+    color: rgb(0, 4, 255);
+    border: 1px solid rgba(0, 0, 0, 0.089);
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.096);
+    border-radius: 50%;
+    cursor: pointer;
+}
+.produto > #favorite:hover{
+    color: rgb(255, 0, 0);
+}
+
+.produto > #legenda {
+    position: absolute;
+    text-align: left;
+    left: 40%;
+    top: 76%;
+    width: 200px;
+    height: 50px;
+    text-shadow: 0px 0px 20px rgba(0, 0, 0, 0.42);
+    
+
+    transform: translate(-50%, -50%);
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 13px;
+}
+
+.card{
+    display: none;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -145%);
+
+    margin: auto;
+    width: 95%;
+    max-width: 340px;
+    height: 30%;
+    border-radius: 10px;
+
+    background-color: rgb(160, 160, 160);
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.105);
+    background-size: cover;
+    background-repeat: no-repeat ;
+    background-position: center ;
+}
+  .card.ativa {
+    display: block;
+  }
+#botoes{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -900%);
+
+    width: 98%;
+    max-width: 340px;
+}
+
+.botao_mudar{
+    border: 0px;
+    color: rgb(255, 255, 255);
+    background-color: rgba(255, 255, 255, 0);
+}
+.botao_mudar:hover{
+    background-color: rgba(255, 255, 255, 0.192);
+    border-radius: 50%;
+}  
+
+#mudar_esquerda{
+   margin-right: 80%;
+}
+#fotos{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-51%, -150%);
+
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    height: 80px;
+    width: 95%;
+    max-width: 340px;
+    background-color:rgba(255, 255, 255, 0.875);
+    border-radius: 10px;
+
+    overflow-x: auto;
+}
+
+#foto > button{
+    border: 0px;
+    
+}
+ #mini-foto {
+    margin-left: 5px;
+    width: 75px;
+    height:75px;
+    border: 0px;
+    border-radius: 10px;
+  
+}
+
+
+#comprar{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-104%, -80%);
+
+    padding: 11px;
+    width: 39%;
+    max-width: 140px;
+    height: 20px;
+    background-color: rgb(3, 61, 141);
+
+    border-radius: 10px;
+    color: white;
+    cursor: pointer;
+}
+
+#contato{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(3%, -80%);
+
+    padding: 10px;
+    width: 39%;
+    max-width: 140px;
+    height: 20px;
+    background-color: rgba(255, 255, 255, 0);
+    
+    border-radius: 10px;
+    border: 1px solid rgb(3, 61, 141);
+    color: rgb(3, 61, 141);
+    cursor: pointer;
+}
+
+#descricao_produto{
+    position: relative;
+    margin: auto;
+    margin-top: 415px;
+    width: 95%;
+    height: 345px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.157);
+    text-align: justify;
+}
+#descricao_produto > #valor{
+    padding-top: 10px;
+    height: 35px;
+    background-color: rgb(3, 61, 141);
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.5em;
+    text-shadow: 0px 0px 20px rgba(255, 255, 255, 0.153);
+    color: rgb(255, 255, 255);
+    border-radius: 10px 10px 0px 0px;
+}
+#descricao_produto > h3{
+    text-align: center;
+    margin: 10px;
+    color: rgb(68, 68, 68);
+    text-shadow: 0px 0px 20px rgba(26, 26, 26, 0.126);
+
+}
+#descricao_produto > #ano, #km, #marca{
+    margin-left: -32px;
+}
+
+#descricao_produto > div > p{
+    margin-top: 18px;
+    margin-left: 46px;
+    font-size: 16px;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+
+#gasolina > p > img{
+    position: absolute;
+    left: 25px;
+    top: 61%;
+    transform: translate(-50%, -43%);
+}
+#cambio > p > img{
+    position: absolute;
+    left: 25px;
+    top: 72%;
+    transform: translate(-50%, -50%);
+}
+#porta > p > img{
+    position: absolute;
+    left: 25px;
+    top: 81%;
+    transform: translate(-50%, -35%);
+}
+#motor > p > img{
+    position: absolute;
+    left: 25px;
+    top: 93%;
+    transform: translate(-50%, -50%);
+}
+
+
+#excluir{
+    padding: 10px;
+    padding-left: 30px;
+    padding-right: 30px; 
+
+
+    color: white;
+    background-color: rgb(242, 66, 66);
+    border: 2px solid red;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.23);
+    border-radius: 10px;
+
+}
+
+#editar{
+    padding: 10px;
+    padding-left: 30px;
+    padding-right: 30px;
+    color: white;
+    background-color: rgb(66, 131, 242);
+    border: 2px solid blue;
+    border-radius: 10px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.23);
+    margin: 10px;
+}
+
+#opcao{
+
+    margin-bottom: 20px;
+}
