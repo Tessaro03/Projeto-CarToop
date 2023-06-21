@@ -1,3 +1,10 @@
 from django.contrib import admin
+from usuarios.models import Favorito
 
-# Register your models here.
+@admin.register(Favorito)
+class FavoritoAdmin(admin.ModelAdmin):
+    list_display = ( 'user', 'item',)
+    list_display_links = ( 'user', 'item',)
+    
+   
+    

@@ -15,7 +15,6 @@ html, body{
 #header{
     position: relative;
     background-image: linear-gradient(to right, rgb(0, 0, 0), rgb(0, 79, 190));
-    box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.553);
     font-family: Arial, Helvetica, sans-serif;
     height: 140px;
 }
@@ -53,7 +52,7 @@ form{
     margin-top: 15px;
     height: 35px;
     width: 270px;
-    border-radius: 15px;
+    border-radius: 5px;
     border: 0px solid white;
     padding-left: 5px;
     padding-right: 35px;
@@ -80,22 +79,23 @@ form{
     text-align: center;
     padding: 15px;
     background-image:  linear-gradient(to right, rgb(0, 0, 0), rgb(0, 79, 190));
-    box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.553);
+    box-shadow: 0px 3px 20px rgba(0, 0, 0, 0.553);
 }
 .menu > a{
+    display: block;
+    border: 1px solid white;
+    padding: 8px;
+    border-radius: 25px;
+    margin-top: 10px;
     text-decoration: none;
     color: white;
 }
-.menu > a > p{
-    
-    border: 1px solid rgba(255, 255, 255, 0.4);
-    padding: 5px;
-    margin: 5px;
-    border-radius: 20px;
-}
-.menu > a > p:hover{
+
+.menu > a:hover{
     background-color: white;
-    color: rgb(0, 79, 190);
+    color: rgb(0, 0, 0);
+    border-radius: 10px;
+    
 }
 
 main{
@@ -275,7 +275,7 @@ section.compra{
     margin: auto;
     margin-top: 8px;
     border-radius: 10px;
-    box-shadow: 0px 10px 20px rgb(255 255 255 / 20%);
+
 }
 
 #redes-sociais > a > img, a{

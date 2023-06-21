@@ -2,14 +2,20 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@1,700&display=swap');
 
+
+
+
 #select_filtros{
-    padding: 5px;
+    padding: 10px;
     text-align: center;
     color: rgb(216, 216, 216);
-    border-top: 1px solid rgba(255, 255, 255, 0.161);
     background-image:linear-gradient(to right, rgb(0, 0, 0), rgb(0, 79, 190));
     cursor: pointer;
     font-size: 16px;
+}
+
+#filtro-g{
+    display: none;
 }
 #select_filtros > span{
     font-size: 16px;
@@ -24,7 +30,7 @@
     display: none;
     text-align: center;
     max-width: 700px;
-    width: 80%;
+    width: 85%;
     margin: auto;
     padding: 20px;
     border-bottom: 1px solid rgba(88, 88, 88, 0.378);
@@ -35,23 +41,42 @@
     display: inline-block;
     width: 100px;
     height: 20px;
-    background-color:rgb(3, 61, 141);
-    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.313);
-    padding: 10px;
-    margin:5px;
-    color: white;
+    border: 1px solid rgb(3, 61, 141);
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.074);
+    padding: 5px;
+    margin: 5px;
+    color: rgb(3, 61, 141);
     border-radius: 10px;
     
 }
 .btn:hover, .btn > a:hover{
-    background-color: white;
-    color: rgb(0, 79, 190);
+    background-color: rgb(3, 61, 141);
+    color: rgb(255, 255, 255);
 }
+#logos > h3 {
+    text-align:  center;
+    color: rgb(2, 41, 95);
+    margin-bottom: 10px;
+}
+
+.logo{
+    display: inline-block;
+    text-align: center;
+    border: 1px solid rgba(0, 0, 0, 0.116);
+    margin: 3px;
+    height: 70px;
+    width: 120px;
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    border-radius: 10px;
+    font-size: 14px;
+    padding-top: 5px;
+}
+
+
 
 #vitrine{
     width: 100%;
-    
-    text-align: center;
 }
 
 .caixas{
@@ -79,7 +104,7 @@
     border-radius: 10px 10px 0px 0px;
 }
 
-.caixas > #favorite {
+.caixas > #favorite > span {
     position: absolute;
     left: 89%;
     top: 8%;
@@ -91,7 +116,7 @@
     border-radius: 50%;
     cursor: pointer;
 }
-.caixas > #favorite:hover{
+.caixas > #favorite > span:hover {
     color: rgb(255, 0, 0);
 }
 
@@ -117,7 +142,7 @@
     text-align: left;
     font-family: 'Roboto Condensed', sans-serif;
     font-size: 1.2em;
-    margin-top: 265px;
+    margin-top: 250px;
     margin-left: 12px;
     text-shadow: 0px 0px 20px rgba(105, 105, 105, 0.116);
     color: rgb(3, 61, 141);
@@ -159,4 +184,30 @@
     text-shadow: 0px 0px 20px rgba(0, 27, 71, 0.348);
     color: rgb(3, 61, 141);
 
+}
+
+#paginator{
+    
+    margin-top: 15px;
+   
+}
+
+.page-link{
+    text-decoration: none;
+    padding: 5px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid rgb(3, 61, 141);
+    background-color: rgb(3, 61, 141);
+    color: rgb(255, 255, 255);
+    
+}
+
+.page-desativado{
+    text-decoration: none;
+    padding: 5px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 2px solid rgb(3, 61, 141);
+    color: rgb(3, 61, 141);
 }

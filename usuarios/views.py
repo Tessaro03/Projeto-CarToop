@@ -1,7 +1,9 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from usuarios.forms import LoginForms, CadastroForms
 from django.contrib.auth.models import User
 from django.contrib import auth
+from usuarios.models import Favorito
+from galeria.models import Veiculo
 
 from django.contrib import messages
 
@@ -58,3 +60,20 @@ def logout(request):
     auth.logout(request)
     messages.success(request,'Logou Feito!')
     return redirect('login')
+
+def favoritos(request):
+    favoritos = Favorito.objects.filter(user=request.user)
+    veiculos_favoritados = [favorito.item for favorito in favoritos]
+    return render(request, 'favoritos.html',  {'veiculos_favoritados': veiculos_favoritados})
+
+def favoritar(request, item_id):
+    item = get_object_or_404(Veiculo, pk=item_id)
+    Favorito.objects.get_or_create(user=request.user, item=item)
+    current_url = request.META.get('HTTP_REFERER')
+    return redirect(current_url)
+
+def desfavoritar(request, item_id):
+    item = get_object_or_404(Veiculo, pk=item_id)
+    Favorito.objects.filter(user=request.user, item=item).delete()
+    current_url = request.META.get('HTTP_REFERER')
+    return redirect(current_url)

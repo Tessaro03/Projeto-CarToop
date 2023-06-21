@@ -8,7 +8,7 @@
         <div id="logo">
             <h1><a href="{% url 'index' %}">CarToop</a></h1>
         </div>
-        <div>
+        <div id='busca'>
             <form action="{% url 'buscar' %}">
                 <input class='buscar' type="search" name='buscar' placeholder='Busque aqui..'>
                 <button id='botao_buscar' type="submit"><span class="material-symbols-outlined">search</span></button>
@@ -17,17 +17,17 @@
     </div>
     
     <div class="menu">
-            <a href="{% url 'estoque' %}"><p><strong>Estoque</strong></p></a>
+            <a href="{% url 'estoque' %}"><strong>Estoque</strong></a>
         {% if not user.is_authenticated %}
-            <a href="{% url 'login'%}"><p><strong>Login</strong></p></a>
-            <a href="{% url 'cadastro'%}"><p><strong>Cadastrar-se</strong></p></a>
+            <a href="{% url 'login'%}"><strong>Login</strong></a>
+            <a href="{% url 'cadastro'%}"><strong>Cadastrar-se</strong></a>
         {% endif %}
         {% if user.is_authenticated %}
-            <a href="#"><p><strong>Favoritos</strong></p></a>
-            <a href="{% url 'logout'%}"><p><strong>Logout</strong></p></a>
+            <a href="{% url 'favoritos'%}"><strong>Favoritos</strong></a>
+            <a href="{% url 'logout'%}"><strong>Logout</strong></a>
         {% endif %}     
         {% if user.is_authenticated and user.is_superuser %}
-            <a href="http://127.0.0.1:8000/admin/"><p><strong>Admin</strong></p></a>
+            <a href="http://127.0.0.1:8000/admin/"><strong>Admin</strong></a>
         {% endif %}           
     </div>
    

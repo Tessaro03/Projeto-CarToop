@@ -2,12 +2,35 @@
 {% load static %}
 {% block content%}    
 <nav>
-    <h2 id="select_filtros">FILTROS <span class="material-symbols-outlined"> arrow_circle_down</span></h2>
-    <div id="filtros">  
-        <a href={% url "filtro" "MOTO" %}><div class='btn'> <strong>MOTOS</strong> </div></a>
-        <a href={% url "filtro" "CARRO" %}><div class='btn'> <strong>CARROS</strong></div> </a>
-        <a href={% url "filtro" "VANS" %}><div class='btn'> <strong>VANS</strong> </div></a>
-        <a href={% url "filtro" "CAMINHOES" %}><div class='btn'> <strong>CAMINHÕES</strong> </div></a>   
+    
+    <h2 id="select_filtros" style="box-shadow: 3px 8px rgb(255, 255, 255)"><p>FILTROS</p> <span class="material-symbols-outlined"> arrow_circle_down</span></h2>
+     <h3 id='filtro-g'> FILTROS </h3>
+    <div id="filtros" >  
+       
+        <a href={% url "estoque" %}><div class='btn'> <strong>TODOS</strong> </div></a>
+        <a href={% url "filtro" "MOTO" %}><div class='btn'> <strong>MOTO</strong> </div></a>
+        <a href={% url "filtro" "CARRO" %}><div class='btn'> <strong>CARRO</strong></div> </a>
+        <a href={% url "filtro" "VANS" %}><div class='btn'> <strong>VAN</strong> </div></a>
+        <a href={% url "filtro" "CAMINHOES" %}><div class='btn'> <strong>CAMINHÃO</strong> </div></a>   
+        <hr style='margin:10px'>
+        <div id='logos'>
+            <h3> MARCAS </h3>
+            <a href="{% url "filtroMarca" "BMW" %}"><div class='logo'> <img src='../../media/logos/bmw-1.png'><br><strong> BMW</strong> </div></a>
+            <a href="{% url "filtroMarca" "FIAT" %}"><div class='logo'> <img src='../../media/logos/fiat.png'> <br><strong>FIAT </strong></div></a>
+            <a href="{% url "filtroMarca" "FORD" %}"><div class='logo'> <img src='../../media/logos/ford.png'> <br><strong>FORD </strong></div></a>
+            <a href="{% url "filtroMarca" "CHEVROLET" %}"><div class='logo'> <img src='../../media/logos/gm-chevrolet.png'> <br><strong>CHEVROLET</strong> </div></a>
+            <a href="{% url "filtroMarca" "RENAULT" %}"><div class='logo'> <img src='../../media/logos/renault.png'><br><strong>RENAULT</strong> </div></a>
+            <a href="{% url "filtroMarca" "HONDA" %}"><div class='logo'> <img src='../../media/logos/honda.png'><br><strong>HONDA</strong> </div></a>
+            <a href="{% url "filtroMarca" "HONDA" %}"><div class='logo'> <img src='../../media/logos/honda-1.png'><br><strong>HONDA </strong></div></a>
+            <a href="{% url "filtroMarca" "HYUNDAI" %}"><div class='logo'> <img src='../../media/logos/hyundai.png'><br><strong>HYUNDAI </strong></div></a>
+            <a href="{% url "filtroMarca" "JEEP" %}"><div class='logo'> <img src='../../media/logos/jeep.png'><br><strong>JEEP </strong></div></a>
+            <a href="{% url "filtroMarca" "SUZUKI" %}"><div class='logo'> <img src='../../media/logos/suzuki-1.png'><br><strong>SUZUKI</strong> </div></a>
+            <a href="{% url "filtroMarca" "PEUGEOT" %}"><div class='logo'> <img src='../../media/logos/peugeot.png'><br><strong>PEUGEOT</strong> </div></a>
+            <a href="{% url "filtroMarca" "TOYOTA" %}"><div class='logo'> <img src='../../media/logos/toyota.png'><br><strong>TOYOTA</strong> </div></a>
+            <a href="{% url "filtroMarca" "VOLKSWAGEN" %}"><div class='logo'> <img src='../../media/logos/vw-volkswagen.png'><br><strong>VOLKSWAGEN</strong> </div></a>
+
+        </div>
+
     </div>
 </nav>
 <body>
@@ -22,7 +45,16 @@
                         {% else %}
                             <img src="{{ veiculo.fotos.all.0.imagem.url }}" alt="foto {{veiculo.nome}}">
                         {% endif %}
-                        <span class="material-symbols-outlined" id="favorite">favorite</span>
+                        {% if user.is_authenticated %}
+                            {% if veiculo.id in veiculos_favoritados %}
+                                <a id="favorite" href="{% url 'desfavoritar' veiculo.id %}" ><span style="color: red;" class="material-symbols-outlined">favorite</span></a>
+                            {% else %}
+                                <a id="favorite" href="{% url 'favoritar' veiculo.id %}" ><span class="material-symbols-outlined">favorite</span></a>                                    
+                            {% endif %}
+                        {% else %}
+                            <a id="favorite" href="{% url 'login' %}"><span class="material-symbols-outlined">favorite</span></a>
+                        {% endif %}   
+
                         <h4 id='nome'>{{ veiculo.nome }}</h4>
                         <div id='descricao'>
                             <p>{{ veiculo.legenda }}</p>
@@ -40,8 +72,32 @@
                         </a>
                     </div>
                 {% endfor %}
+                <div id="paginator">
+                            {% if cards.has_other_pages %}
+                                {% if cards.has_previous %}
+                                    <a href="?page={{ cards.previous_page_number }}" class="page-link">&laquo;</a>
+                                {% else %}
+                                    <a class="page-desativado">&laquo;</a>
+                                {% endif %}
+                                {% for pagina in cards.paginator.page_range %}
+                                {% if cards.number == pagina %}
+                                    <a class="page-desativado">{{ pagina }}</a>
+                                {% else %}
+                                    <a href="?page={{pagina}}" class="page-link">{{pagina}}</a>
+                                {% endif %}
+                                {% endfor %}
+                                {% if cards.has_next %}
+                                    <a href="?page={{ cards.next_page_number }}" class="page-link">&raquo;</a>
+                                {% else %}
+                                    <a class="page-desativado">&raquo;</a>
+                                {% endif %}
+                            </ul>
+                            {% endif %}
+                        </div>
             {% endif %}
         </section>
+         
+            
         
     </main>
 </body>

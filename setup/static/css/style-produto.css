@@ -11,7 +11,7 @@
 .produto{
     position: relative;
     width: 95%;
-    height: 900px;
+    height: 800px;
     
     margin: auto;
 
@@ -30,7 +30,7 @@
     color: rgb(3, 61, 141);
 }
 
-.produto > #favorite {
+.produto > #favorite > span {
     position: absolute;
     left: 93%;
     top: 4%;
@@ -44,7 +44,7 @@
     border-radius: 50%;
     cursor: pointer;
 }
-.produto > #favorite:hover{
+.produto > #favorite:hover >  span{
     color: rgb(255, 0, 0);
 }
 
@@ -72,7 +72,7 @@
 
     margin: auto;
     width: 95%;
-    max-width: 340px;
+    
     height: 30%;
     border-radius: 10px;
 
@@ -89,10 +89,10 @@
     position: absolute;
     left: 50%;
     top: 50%;
-    transform: translate(-50%, -900%);
+    transform: translate(-50%, -800%);
 
     width: 98%;
-    max-width: 340px;
+
 }
 
 .botao_mudar{
@@ -112,17 +112,15 @@
     position: absolute;
     left: 50%;
     top: 50%;
-    transform: translate(-51%, -150%);
-
+    transform: translate(-51%, -125%);
     display: flex;
     justify-content: flex-start;
     align-items: center;
     height: 80px;
     width: 95%;
-    max-width: 340px;
     background-color:rgba(255, 255, 255, 0.875);
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.126);
     border-radius: 10px;
-
     overflow-x: auto;
 }
 
@@ -136,6 +134,7 @@
     height:75px;
     border: 0px;
     border-radius: 10px;
+    cursor: pointer;
   
 }
 
@@ -144,11 +143,11 @@
     position: absolute;
     left: 50%;
     top: 50%;
-    transform: translate(-104%, -80%);
+    transform: translate(-104%, -25%);
 
     padding: 11px;
     width: 39%;
-    max-width: 140px;
+    
     height: 20px;
     background-color: rgb(3, 61, 141);
 
@@ -161,11 +160,11 @@
     position: absolute;
     left: 50%;
     top: 50%;
-    transform: translate(3%, -80%);
+    transform: translate(3%, -25%);
 
     padding: 10px;
     width: 39%;
-    max-width: 140px;
+   
     height: 20px;
     background-color: rgba(255, 255, 255, 0);
     
@@ -178,9 +177,9 @@
 #descricao_produto{
     position: relative;
     margin: auto;
-    margin-top: 415px;
+    margin-top: 390px;
     width: 95%;
-    height: 345px;
+    height: 300px;
     background-color: rgb(255, 255, 255);
     border-radius: 10px;
     box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.157);
@@ -200,45 +199,36 @@
 #descricao_produto > h3{
     text-align: center;
     margin: 10px;
-    color: rgb(68, 68, 68);
+    color:rgb(3, 61, 141);
     text-shadow: 0px 0px 20px rgba(26, 26, 26, 0.126);
 
 }
-#descricao_produto > #ano, #km, #marca{
-    margin-left: -32px;
-}
-
-#descricao_produto > div > p{
-    margin-top: 18px;
-    margin-left: 46px;
-    font-size: 16px;
-    font-family:Arial, Helvetica, sans-serif;
-}
 
 
-#gasolina > p > img{
-    position: absolute;
-    left: 25px;
-    top: 61%;
-    transform: translate(-50%, -43%);
+
+#descricoes{
+    margin: auto;
+    height: 320px;
+    width: 93%;
+    text-align: center;
+
 }
-#cambio > p > img{
-    position: absolute;
-    left: 25px;
-    top: 72%;
-    transform: translate(-50%, -50%);
+
+.descricao{
+    text-align: left;
+    display: inline-block;
+    border: 1px solid rgba(0, 0, 0, 0.104);
+    padding: 6px;
+    border-radius: 5px;
+    margin-top: 5px;
+    width: 43%;
+    
+
 }
-#porta > p > img{
-    position: absolute;
-    left: 25px;
-    top: 81%;
-    transform: translate(-50%, -35%);
-}
-#motor > p > img{
-    position: absolute;
-    left: 25px;
-    top: 93%;
-    transform: translate(-50%, -50%);
+.descricao > p > img{
+    
+    margin-bottom: -9px;
+    margin-left: 1px;
 }
 
 
@@ -249,7 +239,7 @@
 
 
     color: white;
-    background-color: rgb(242, 66, 66);
+    background-color: rgb(245, 48, 48);
     border: 2px solid red;
     box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.23);
     border-radius: 10px;
@@ -261,7 +251,7 @@
     padding-left: 30px;
     padding-right: 30px;
     color: white;
-    background-color: rgb(66, 131, 242);
+    background-color: rgb(32, 105, 232);
     border: 2px solid blue;
     border-radius: 10px;
     box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.23);

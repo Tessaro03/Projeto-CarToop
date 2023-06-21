@@ -12,6 +12,14 @@ OPCOES_MARCA = [
     ('DUCATI', 'Ducati'),
     ('HYUNDAI', 'Hyundai'),
     ('TRIUMPH', 'Triumph'),
+    ('FORD', 'Ford'),
+    ('RENAULT', 'Renault'),
+    ('JEEP', 'Jeep'),
+    ('SUZUKI', 'Suzuki'),
+    ('PEUGEOT', 'Peugeot'),
+    ('TOYOTA', 'Toyota'),
+    ('VOLKSWAGEN', 'Volkswagen'),
+
 ]
 
 OPCOES_VEICULO = [
@@ -19,6 +27,14 @@ OPCOES_VEICULO = [
     ('CARRO', 'Carro'),
     ('VANS', 'Vans'),
     ('CAMINHOES', 'Caminhoes'),
+]
+
+OPCOES_COMBUSTIVEL = [
+    ('GASOLINA','Gasolina'),
+    ('ÁLCOOL','Álcool'),
+    ('DIESEL','Diesel'),
+    ('ELÉTRICO','Elétrico'),
+    ('HÍBRIDO','Híbrido'),
 ]
 
 
@@ -37,6 +53,13 @@ class Veiculo(models.Model):
     km = models.FloatField(null=False, blank=False)
     valor = models.FloatField(null=False, blank=False)
     tipo = models.CharField(max_length=30, choices=OPCOES_VEICULO, default='')
+    portas = models.IntegerField(null=False, blank=True)
+    motor = models.CharField(max_length=20, null=False, blank=False)
+    cor = models.CharField(max_length=20, null=False, blank=True)
+    cambio = models.CharField(max_length=20, null=False, blank=True)
+    combustivel = models.CharField(max_length=30, choices=OPCOES_COMBUSTIVEL, default='')
+
+    
     legenda = models.TextField(max_length=80, null=False, blank=False)
     publicada = models.BooleanField(default=False)
 

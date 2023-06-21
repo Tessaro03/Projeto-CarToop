@@ -12,7 +12,15 @@
             {% endif %}
             <div class='produto'>
                 <p id='nome'> {{veiculo.nome}} </p>
-                <span class="material-symbols-outlined" id="favorite">favorite</span>
+                {% if user.is_authenticated %}
+                    {% if veiculo.id in veiculos_favoritados %}
+                        <a id="favorite" href="{% url 'desfavoritar' veiculo.id %}" ><span style="color: red;" class="material-symbols-outlined">favorite</span></a>
+                    {% else %}
+                        <a id="favorite" href="{% url 'favoritar' veiculo.id %}" ><span class="material-symbols-outlined">favorite</span></a>                                    
+                    {% endif %}
+                {% else %}
+                    <a id="favorite" href="{% url 'login' %}"><span class="material-symbols-outlined">favorite</span></a>
+                {% endif %} 
                 {% for foto in veiculo.fotos.all %}
                     <img class="card{% if forloop.first %} ativa{% endif %}" src="{{ foto.imagem.url }}">
                 {% endfor %}
@@ -31,35 +39,34 @@
                 <div id='contato'>
                     <p><strong>CONTATO</strong></p>
                 </div>
+                
                 <div id="descricao_produto">
                     <p id='valor'><strong> R$ {{veiculo.valor}}0 </strong></p>
                     <h3> DESCRIÇÃO </h3>
-
-                    <div id='km'>
-                        <p> <strong>KM:</strong> {{veiculo.km}} </p>
-                    </div>
-                    <div id='ano'>
-                        <p> <strong>ANO:</strong> {{veiculo.ano}} </p>
-                    </div>
-                    <div id='marca'>
-                       <p><strong> MARCA: </strong>{{ veiculo.marca}} </p> 
-                        
-                    </div>
-                    <div id="gasolina">
-                         <p><img src="../../media/icones/icons8-fuel-gas-32.png"><strong>:</strong> Gasolina </p>
-                        
-                    </div>
-                    <div id="cambio">
-                       <p><img src="../../media/icones/icons8-caixa-de-velocidade-32.png"> <strong>:</strong> Automatico </p>
-                      
-                    </div>
-                    <div id="porta">
-                       <p> <img src="../../media/icones/icons8-fechadura-da-porta-32.png"><strong>:</strong> 4 </p>
-                        
-     
-                    </div>
-                    <div id="motor">
-                       <p> <img src="../../media/icones/icons8-motor-48.png"><strong>:</strong>  2.0 </p>
+                    <div id='descricoes'>
+                        <div class='descricao'>                    
+                            <p>Km: {{veiculo.km}}0</p>
+                        </div>
+                        <div class='descricao'>                    
+                            <p>Ano:  {{veiculo.ano}}</p>
+                        </div>
+                        <div class='descricao'>                    
+                            <p>Portas: {{veiculo.portas}}</p>
+                        </div>
+                        <div class='descricao'>                    
+                            <p>Marca: {{veiculo.marca}}</p>
+                        </div>
+                        <div class='descricao'>                    
+                            <p><img src='../../media/icones/icons8-fuel-gas-32.png'>: {{veiculo.combustivel}}</p>
+                        </div>
+                        <div class='descricao'>                    
+                            <p><img src='../../media/icones/icons8-motor-48.png'> : {{veiculo.motor}}</p>
+                        </div>
+                        <div class='descricao'>                    
+                            <p>Cor: {{veiculo.cor}}</p>
+                        </div>
+            
+                        </div>
                     </div>
                 </div>
             </div>

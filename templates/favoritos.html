@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content%}    
+
+<body>
+    <main>
+        
+        <section id="vitrine" style="margin: auto">
+            {% if veiculos_favoritados %}
+                {% for veiculo in veiculos_favoritados %}
+                    <div class="caixas">
+                        <img src="{{ veiculo.fotos.all.0.imagem.url }}" alt="foto {{veiculo.nome}}">
+                        <a id="favorite" href="{% url 'desfavoritar' veiculo.id %}"><span style="color: red;" class="material-symbols-outlined">favorite</span></a>
+                        <h4 id='nome'>{{ veiculo.nome }}</h4>
+                        <div id='descricao'>
+                            <p>{{ veiculo.legenda }}</p>
+                        </div>
+                        <div id='ano'>
+                            <p>{{ veiculo.ano }}</p>
+                        </div>
+                        <div id='valor'>
+                            <p><strong>R$ {{ veiculo.valor }}0</strong></p>
+                        </div>
+                        <a href="{% url 'produto' veiculo.id %}">
+                            <div class="info">
+                                <strong>ACESSAR</strong>
+                            </div>
+                        </a>
+                    </div>
+                {% endfor %}
+            {% endif %}
+        </section>
+        
+    </main>
+</body>
+<script src={% static "js/script_estoque.js" %}></script>
+{% endblock %}
